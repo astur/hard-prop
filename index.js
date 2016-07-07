@@ -6,8 +6,8 @@ module.exports = function(object){
         var name = args.shift();
 
         var ad = {
-            get: function(){throw new Error('error');},
-            set: function(v){throw new Error('error');}
+            get: function(){throw new Error('unable to get property: ' + name);},
+            set: function(v){throw new Error('unable to set property: ' + name);}
         };
 
         var f = args.shift();
