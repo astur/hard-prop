@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "hard-prop",
+  "version": "0.0.1",
+  "description": "replacement for Object.defineProperty",
+  "main": "index.js",
+  "author": "astur <astur@yandex.ru> (http://kozlov.am/)",
+  "license": "MIT"
+}
