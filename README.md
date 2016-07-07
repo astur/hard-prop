@@ -30,6 +30,26 @@ Second parameter can be object with properties `get` and/or `set` for getter and
 
 If only getter given - property will be read-only (error will thrown on write). If only setter given - property will be write-only (error will thrown on read). At least one getter or setter must be given.
 
+## Example
+
+```js
+var P = require('hard-prop');
+
+function Human(){
+    var _p = P(this);
+    var _firstname = '';
+    var _lastname = '';
+    _p('name',
+        () => _firstname + ' ' + _lastname,
+        (v) => {
+            v = v.split(' ');
+            _firstname = v[0];
+            _lastname = v[1];
+        }
+    );
+}
+
+```
 
 ## License
 
