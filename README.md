@@ -2,6 +2,8 @@
 
 Easy way to create properties with getter and/or setter.
 
+[![NPM version][npm-image]][npm-url]
+
 ## Install
 
 ```bash
@@ -54,3 +56,6 @@ function Human(){
 ## License
 
 MIT
+
+[npm-url]: https://npmjs.org/package/hard-prop
+[npm-image]: https://badge.fury.io/js/hard-prop.svg

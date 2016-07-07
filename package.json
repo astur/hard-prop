@@ -1,7 +1,6 @@
 {
-  "private": true,
   "name": "hard-prop",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "replacement for Object.defineProperty",
   "main": "index.js",
   "repository": "astur/hard-prop",
