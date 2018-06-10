@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "replacement for Object.defineProperty",
   "main": "index.js",
-  "repository": "astur/hard-prop",
   "author": "astur <astur@yandex.ru> (http://kozlov.am/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/astur/hard-prop.git"
+  },
   "license": "MIT"
 }
