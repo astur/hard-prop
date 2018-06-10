@@ -8,5 +8,14 @@
     "type": "git",
     "url": "https://github.com/astur/hard-prop.git"
   },
+  "keywords": [
+    "property",
+    "object",
+    "descriptor",
+    "getter",
+    "setter",
+    "get",
+    "set"
+  ],
   "license": "MIT"
 }
