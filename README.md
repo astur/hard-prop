@@ -2,6 +2,7 @@
 
 Easy way to create properties with getter and/or setter.
 
+[![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 
 ## Install
@@ -71,3 +72,5 @@ MIT
 
 [npm-url]: https://npmjs.org/package/hard-prop
 [npm-image]: https://badge.fury.io/js/hard-prop.svg
+[travis-url]: https://travis-ci.org/astur/hard-prop
+[travis-image]: https://travis-ci.org/astur/hard-prop.svg?branch=master
