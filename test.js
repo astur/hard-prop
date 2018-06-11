@@ -11,10 +11,10 @@ test('base', t => {
     obj.x = 1;
     t.is(obj.x, 1);
     t.deepEqual(obj, {a: 1});
-    p('y', {get: () => obj.b, set: y => { obj.b = y; }});
-    t.is(obj.y, undefined);
-    obj.y = 1;
+    p('y', {get: () => 1});
     t.is(obj.y, 1);
+    p('z', {set: z => { obj.b = z; }});
+    obj.z = 1;
     t.deepEqual(obj, {a: 1, b: 1});
 });
 
@@ -27,4 +27,18 @@ test('descriptor', t => {
     t.is(typeof d.set, 'function');
     t.is(d.enumerable, false);
     t.is(d.configurable, false);
+});
+
+test('errors', t => {
+    const obj = {};
+    const p = hp(obj);
+    p('g', () => 1);
+    p('s', x => {});
+    t.throws(() => { obj.g = 1; });
+    t.throws(() => obj.s);
+    t.throws(() => p());
+    t.throws(() => p(1));
+    t.throws(() => p('name'));
+    t.throws(() => p('name', 'bad'));
+    t.throws(() => p('name', {}, 'bad'));
 });
