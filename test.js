@@ -1,7 +1,18 @@
 const test = require('ava');
-const m = require('.');
+const hp = require('.');
 
-test('main', t => {
+test('base', t => {
+    const obj = {};
+    const p = hp(obj);
+    p(
+        'x',
+        () => obj.a,
+        x => { obj.a = x; }
+    );
+    t.deepEqual(obj, {});
+    t.is(obj.x, undefined);
+    obj.x = 1;
+    t.is(obj.x, 1);
+    t.deepEqual(obj, {a: 1});
     t.pass();
-    t.is(m, m);
 });
