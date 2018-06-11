@@ -1,33 +1,22 @@
-module.exports = function(object){
-    const f = function(...args){
-        const name = args.shift();
+module.exports = object => (name, ...args) => {
+    if(typeof name !== 'string') throw new Error('name must be a string');
+    if(args.length === 0) throw new Error('need getter or setter function');
 
-        if(typeof name !== 'string') throw new Error('name must be a string');
-
-        const ad = {
-            get(){ throw new Error(`unable to get property: ${name}`); },
-            set(v){ throw new Error(`unable to set property: ${name}`); },
-        };
-
-        if(args.length === 0) throw new Error('need getter or setter function');
-
-        let f = args.shift();
-
-        if(typeof f === 'object'){
-            ad.get = f.get || ad.get;
-            ad.set = f.set || ad.set;
-            if(args.length > 0) throw new Error('too many arguments');
-        }
-
-        while(typeof f === 'function'){
-            ad[f.length === 0 ? 'get' : 'set'] = f;
-            f = args.shift();
-        }
-
-        if(typeof f !== 'undefined') throw new Error('bad argument');
-
-        Object.defineProperty(this, name, ad);
+    const ad = {
+        get(){ throw new Error(`unable to get property: ${name}`); },
+        set(v){ throw new Error(`unable to set property: ${name}`); },
     };
 
-    return f.bind(object);
+    if(typeof args[0] === 'object'){
+        if(args.length > 1) throw new Error('too many arguments');
+        ad.get = args[0].get || ad.get;
+        ad.set = args[0].set || ad.set;
+    } else {
+        args.forEach(f => {
+            if(typeof f !== 'function') throw new Error('bad argument');
+            ad[f.length === 0 ? 'get' : 'set'] = f;
+        });
+    }
+
+    Object.defineProperty(object, name, ad);
 };
