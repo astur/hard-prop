@@ -11,6 +11,11 @@ test('base', t => {
     obj.x = 1;
     t.is(obj.x, 1);
     t.deepEqual(obj, {a: 1});
+    p('y', {get: () => obj.b, set: y => { obj.b = y; }});
+    t.is(obj.y, undefined);
+    obj.y = 1;
+    t.is(obj.y, 1);
+    t.deepEqual(obj, {a: 1, b: 1});
 });
 
 test('descriptor', t => {
