@@ -1,4 +1,4 @@
-/* eslint max-statements-per-line: "off" */
+/* eslint max-statements-per-line: off, no-empty-function: off */
 const test = require('ava');
 const hp = require('.');
 
